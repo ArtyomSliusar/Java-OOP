@@ -13,21 +13,21 @@ public abstract class Figure {
     public Figure() {}
 
     public Figure(double a, double b) {
-        this.a = a;
-        this.b = b;
+        setA(a);
+        setB(b);
     }
 
     public Figure(double a, double b, double c) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
+        setA(a);
+        setB(b);
+        setC(c);
     }
 
     public Figure(double a, double b, double c, double d) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
-        this.d = d;
+        setA(a);
+        setB(b);
+        setC(c);
+        setD(d);
     }
 
     abstract double area();
@@ -36,33 +36,25 @@ public abstract class Figure {
         return a;
     }
 
-    public void setA(double a) {
-        this.a = a;
-    }
+    public void setA(double a) { if(a > 0) { this.a = a; } }
 
     public double getB() {
         return b;
     }
 
-    public void setB(double b) {
-        this.b = b;
-    }
+    public void setB(double b) { if(b > 0) { this.b = b; } }
 
     public double getC() {
         return c;
     }
 
-    public void setC(double c) {
-        this.c = c;
-    }
+    public void setC(double c) { if(c > 0) { this.c = c; } }
 
     public double getD() {
         return d;
     }
 
-    public void setD(double d) {
-        this.d = d;
-    }
+    public void setD(double d) { if(d > 0) { this.d = d; } }
 
     @Override
     public String toString() {
