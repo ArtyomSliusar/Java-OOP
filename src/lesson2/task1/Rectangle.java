@@ -5,71 +5,44 @@ package lesson2.task1;
  */
 
 public class Rectangle extends Shape {
-    private Point a;
-    private Point b;
-    private Point c;
-    private Point d;
 
     public Rectangle() {}
 
     public Rectangle(Point a, Point b, Point c, Point d) {
-        this.a = a;
-        this.b = b;
-        this.c = c;
-        this.d = d;
+        super(a, b, c, d);
         if(isRectangle()) {
             System.out.println("Rectangle created.");
         }
     }
 
-    public Point getA() {
-        return a;
-    }
-
     public void setA(Point a) {
-        this.a = a;
-        System.out.println("Point A was set.");
+        super.setA(a);
         isRectangle();
-    }
-
-    public Point getB() {
-        return b;
     }
 
     public void setB(Point b) {
-        this.b = b;
-        System.out.println("Point B was set.");
+        super.setB(b);
         isRectangle();
-    }
-
-    public Point getC() {
-        return c;
     }
 
     public void setC(Point c) {
-        this.c = c;
-        System.out.println("Point C was set.");
+        super.setC(c);
         isRectangle();
     }
 
-    public Point getD() {
-        return d;
-    }
-
     public void setD(Point d) {
-        this.d = d;
-        System.out.println("Point D was set.");
+        super.setD(d);
         isRectangle();
     }
 
     private boolean isRectangle() {
         /** Method supposes that points are in order: a,b,c,d */
         boolean rectangle = false;
-        if(a != null && b != null && c != null && d != null) {
-            double ab = getSideLen(a, b);
-            double bc = getSideLen(b, c);
-            double cd = getSideLen(c, d);
-            double ad = getSideLen(a, d);
+        if(getA() != null && getB() != null && getC() != null && getD() != null) {
+            double ab = getSideLen(getA(), getB());
+            double bc = getSideLen(getB(), getC());
+            double cd = getSideLen(getC(), getD());
+            double ad = getSideLen(getA(), getD());
             if(Double.compare(ab, cd) == 0 && Double.compare(bc, ad) == 0 && Double.compare(ab, bc) != 0) {
                 rectangle = true;
             } else {
@@ -84,13 +57,13 @@ public class Rectangle extends Shape {
     @Override
     public double getPerimeter() {
         if(!isRectangle()) { System.exit(1); }
-        return getSideLen(a, b) * 2 + getSideLen(b, c) * 2;
+        return getSideLen(getA(), getB()) * 2 + getSideLen(getB(), getC()) * 2;
     }
 
     @Override
     public double getArea() {
         if(!isRectangle()) { System.exit(1); }
-        return getSideLen(a, b) * getSideLen(b, c);
+        return getSideLen(getA(), getB()) * getSideLen(getB(), getC());
     }
 
     @Override
