@@ -18,6 +18,7 @@ public class Board {
         for(int i=0; i<boardParts.length; i++) {
             if(boardParts[i] == null) {
                 boardParts[i] = figure;
+                System.out.println(String.format("Figure %s added to the board.", figure.getClass().getSimpleName()));
                 return;
             }
         }
@@ -28,6 +29,7 @@ public class Board {
         for(int i=0; i<boardParts.length; i++) {
             if(boardParts[i] == figure) {
                 boardParts[i] = null;
+                System.out.println(String.format("Figure %s removed from the board.", figure.getClass().getSimpleName()));
                 return;
             }
         }
@@ -38,8 +40,10 @@ public class Board {
         double occupiedSquare=0;
         System.out.println("Board has such figures:");
         for(Shape figure : boardParts) {
-            occupiedSquare += figure.getArea();
-            System.out.println(figure);
+            if(figure != null) {
+                occupiedSquare += figure.getArea();
+                System.out.println(figure);
+            }
         }
         System.out.println(String.format("Occupied square is: %s", occupiedSquare));
     }

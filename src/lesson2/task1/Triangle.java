@@ -5,12 +5,44 @@ package lesson2.task1;
  */
 
 public class Triangle extends Shape {
+    private Point a;
+    private Point b;
+    private Point c;
 
     public Triangle() {}
 
     public Triangle(Point a, Point b, Point c) {
-        super(a, b, c);
+        this.a = a;
+        this.b = b;
+        this.c = c;
         System.out.println("Triangle created.");
+    }
+
+    public Point getA() {
+        return a;
+    }
+
+    public void setA(Point a) {
+        this.a = a;
+        System.out.println("Point A was set.");
+    }
+
+    public Point getB() {
+        return b;
+    }
+
+    public void setB(Point b) {
+        this.b = b;
+        System.out.println("Point B was set.");
+    }
+
+    public Point getC() {
+        return c;
+    }
+
+    public void setC(Point c) {
+        this.c = c;
+        System.out.println("Point C was set.");
     }
 
     @Override
