@@ -28,7 +28,12 @@ public class Human {
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        if(firstName != null && !firstName.isEmpty()) {
+            this.firstName = firstName;
+        } else {
+            System.out.println("Can't set first name. First name can't be empty.");
+            System.exit(1);
+        }
     }
 
     public String getLastName() {
@@ -36,7 +41,12 @@ public class Human {
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        if(lastName != null && !lastName.isEmpty()) {
+            this.lastName = lastName;
+        } else {
+            System.out.println("Can't set last name. Last name can't be empty.");
+            System.exit(1);
+        }
     }
 
     public int getAge() {
@@ -46,8 +56,10 @@ public class Human {
     public void setAge(int age) {
         if(age < 0) {
             System.out.println("Can't set age. Age must be a positive integer.");
+            System.exit(1);
+        } else {
+            this.age = age;
         }
-        this.age = age;
     }
 
     public Gender getSex() {
@@ -60,6 +72,6 @@ public class Human {
 
     @Override
     public String toString() {
-        return String.format("first name is %s\nsecond name is %s\nage is %s\nsex is %s\n", firstName, lastName, age, sex);
+        return String.format("Human: first name is %s; second name is %s; age is %s; sex is %s", firstName, lastName, age, sex);
     }
 }

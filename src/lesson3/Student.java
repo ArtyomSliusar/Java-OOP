@@ -14,6 +14,6 @@ public class Student extends Human {
 
     @Override
     public String toString() {
-        return "Student:\n" + super.toString();
+        return super.toString().replaceFirst("Human:", "Student:");
     }
 }

@@ -1,5 +1,6 @@
 package lesson3;
 
+import java.lang.reflect.Array;
 import java.util.Arrays;
 
 /**
@@ -21,8 +22,7 @@ public class Group {
         for(int i=0; i<students.length; i++) {
             if(students[i] == null) {
                 students[i] = newStudent;
-                System.out.println(String.format("Student (%s %s %s %s) was added to the group.", newStudent.getFirstName(),
-                        newStudent.getLastName(), newStudent.getAge(), newStudent.getSex()));
+                System.out.println(String.format("%s was added to the group.", newStudent));
                 return;
             }
         }
@@ -33,13 +33,11 @@ public class Group {
         for(int i=0; i<students.length; i++) {
             if(students[i] == student) {
                 students[i] = null;
-                System.out.println(String.format("Student (%s %s %s %s) was deleted from the group.", student.getFirstName(),
-                        student.getLastName(), student.getAge(), student.getSex()));
+                System.out.println(String.format("%s was deleted from the group.", student));
                 return;
             }
         }
-        System.out.println(String.format("Student (%s %s %s %s) is not in the group.", student.getFirstName(),
-                student.getLastName(), student.getAge(), student.getSex()));
+        System.out.println(String.format("%s can't be removed. He is not in the group.", student));
     }
 
     public Student findByLastName(String lastName) {
@@ -55,8 +53,11 @@ public class Group {
 
     @Override
     public String toString() {
-        return "Group{" +
-                "students=" + Arrays.toString(students) +
-                '}';
+        String group = "Group:\n";
+        QuickSortGroup.quickSort(this.students);
+        for(int i=0; i<this.students.length; i++) {
+            group += this.students[i].toString()+"\n";
+        }
+        return group;
     }
 }
