@@ -9,21 +9,23 @@ import java.util.Random;
 
 public class Main {
     public static void main(String[] args) {
-        Student s1 = new Student("Ivan", "Ivanov", 25, Gender.Man);
-        Student s2 = new Student("Bodya", "Ivanov", 18, Gender.Man);
-        Student s3 = new Student("Kolya", "Ivanov", 25, Gender.Man);
-        Student s4 = new Student("Grisha", "Ivanov", 39, Gender.Man);
-        Student s5 = new Student("Vanya", "Ivanov", 25, Gender.Man);
-        Student s6 = new Student("Sofia", "Ivanov", 26, Gender.Woman);
-        Student s7 = new Student("Misha", "Ivanov", 14, Gender.Man);
-        Student s8 = new Student("Artem", "Ivanov", 25, Gender.Man);
-        Student s9 = new Student("Andrey", "Ivanov", 17, Gender.Man);
-        Student s10 = new Student("Stewart", "Ivanov", 25, Gender.Man);
+        Student s1 = new Student("Ivan", "Ivanov", 25, Gender.Man, 1, "history");
+        Student s2 = new Student("Bodya", "Ivanov", 18, Gender.Man, 2, "math");
+        Student s3 = new Student("Kolya", "Ivanov", 25, Gender.Man, 3, "");
+        Student s4 = new Student("Grisha", "Ivanov", 39, Gender.Man, 5, "");
+        Student s5 = new Student("Vanya", "Ivanov", 25, Gender.Man, 3, "");
+        Student s6 = new Student("Sofia", "Ivanov", 26, Gender.Woman, 4, "");
+        Student s7 = new Student("Misha", "Ivanov", 14, Gender.Man, 2, "");
+        Student s8 = new Student("Artem", "Ivanov", 25, Gender.Man, 1, "all");
+        Student s9 = new Student("Andrey", "Ivanov", 17, Gender.Man, 5, "");
+        Student s10 = new Student("Stewart", "Ivanov", 25, Gender.Man, 3, "");
         Student s11 = new Student();
         s11.setFirstName("Lilu");
         s11.setLastName("Ivanov");
         s11.setSex(Gender.Woman);
         s11.setAge(19);
+        s11.setCourse(2);
+        s11.setFavoriteSubject("literature");
 
         Group g1 = new Group();
         try {
