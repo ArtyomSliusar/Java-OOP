@@ -1,6 +1,7 @@
-package lesson4;
+package lesson5.task3_4;
 
 import java.util.Scanner;
+import java.io.*;
 
 /**
  * Created by artem on 07.02.17.
@@ -29,6 +30,12 @@ public class ManualInput {
                 case "4":
                     sortGroup(group);
                     break;
+                case "5":
+                    saveToFile(group);
+                    break;
+                case "6":
+                    loadFromFile();
+                    break;
                 case "q":
                     System.out.println("Good bye");
                     System.exit(0);
@@ -43,6 +50,8 @@ public class ManualInput {
                             "2. Remove student\n" +
                             "3. Display group\n" +
                             "4. Sort group\n" +
+                            "5. Save group\n" +
+                            "6. Load group\n" +
                             "q. Quit");
     }
 
@@ -52,6 +61,27 @@ public class ManualInput {
                 "3. Sort by age\n" +
                 "4. Sort by course\n" +
                 "5. Return");
+    }
+
+    private static void saveToFile(Group group) {
+        try(ObjectOutputStream OOS = new ObjectOutputStream(new FileOutputStream("./src/lesson5/task3_4/group.cvs"))){
+            OOS.writeObject(group);
+            System.out.println("Group saved to file.\n");
+        }
+        catch(IOException e){
+            System.out.println("ERROR save group !!!");
+        }
+    }
+
+    private static void loadFromFile() {
+        try (ObjectInputStream OIS = new ObjectInputStream(new FileInputStream("./src/lesson5/task3_4/group.cvs"))){
+            Group group = (Group)OIS.readObject();
+            System.out.println("Group loaded from file.\n");
+            editGroup(group);
+        }
+        catch(IOException |ClassNotFoundException e){
+            System.out.println("ERROR load group !!!");
+        }
     }
 
     private static void enterStringParam(Scanner reader, Student s, String paramType) {

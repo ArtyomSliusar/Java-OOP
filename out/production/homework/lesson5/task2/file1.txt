@@ -1,0 +1,2 @@
+This text is styled with some of the
+text formatting properties.
