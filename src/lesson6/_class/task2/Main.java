@@ -1,4 +1,4 @@
-package lesson6.task2;
+package lesson6._class.task2;
 
 /**
  * Created by artem on 01.02.17.

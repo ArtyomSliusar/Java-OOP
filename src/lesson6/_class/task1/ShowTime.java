@@ -1,4 +1,4 @@
-package lesson6.task1;
+package lesson6._class.task1;
 import java.text.SimpleDateFormat;
 
 /**
