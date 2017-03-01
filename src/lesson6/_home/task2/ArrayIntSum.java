@@ -6,6 +6,8 @@ package lesson6._home.task2;
 
 public class ArrayIntSum implements Runnable {
     private int[] intArray;
+    private int start;
+    private int end;
     private int[] threadResults;
 
     public ArrayIntSum() {
@@ -15,8 +17,10 @@ public class ArrayIntSum implements Runnable {
         this.intArray = intArray;
     }
 
-    public ArrayIntSum(int[] intArray, int[] threadResults) {
+    public ArrayIntSum(int[] intArray, int[] threadResults, int start, int end) {
         this.intArray = intArray;
+        this.start = start;
+        this.end = end;
         this.threadResults = threadResults;
     }
 
@@ -36,10 +40,29 @@ public class ArrayIntSum implements Runnable {
         this.threadResults = threadResults;
     }
 
+    public int getStart() {
+        return start;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public int getEnd() {
+        return end;
+    }
+
+    public void setEnd(int end) {
+        this.end = end;
+    }
+
     public int calculate() {
         int res=0;
-        for(int i: this.intArray) {
-            res += i;
+        if(this.end == 0) {
+            this.end = this.intArray.length;
+        }
+        for(int i=this.start; i < this.end; i++) {
+            res += this.intArray[i];
         }
         return res;
     }

@@ -29,7 +29,7 @@ public class Main {
 
         int thrNum=0;
         for (int pos=0; pos < intArray.length; pos+=chunk, thrNum++) {
-            threadArray[thrNum] = new Thread(new ArrayIntSum(Arrays.copyOfRange(intArray, pos, pos+chunk), threadResults));
+            threadArray[thrNum] = new Thread(new ArrayIntSum(intArray, threadResults, pos, pos+chunk));
         }
         start = LocalDateTime.now();
         for(Thread thread: threadArray) {
